@@ -1,1 +1,1 @@
-ls -rmp --time=creation
+ls -tmp
