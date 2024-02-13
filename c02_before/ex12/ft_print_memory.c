@@ -6,15 +6,13 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:54:30 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/13 18:25:35 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:41:55 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <unistd.h>
 
-#define BASE_HEXA "0123456789abcdef"
-/*
 void	print_address(unsigned long addr, const char *base)
 {
 	char	add_first_char[16];
@@ -43,35 +41,21 @@ void	print_char_hexa(char *addr, const char *base, int	size)
 {
 	char	oct_hexa[2];
 	int		i_address;
+	int		i_hexa;
 
 	i_address = 0;
+	i_hexa = 0;
 	while(i_address < size)
 	{
-		oct_hexa[0] = base[*addr / 16];
-		oct_hexa[1] = base[*addr % 16];
+		oct_hexa[i_hexa] = base[*addr / 16];
+		oct_hexa[i_hexa + 1] = base[*addr % 16];
 		write(1, oct_hexa, 2);
+		i_hexa = 0;
 		if (i_address % 2 == 1)
 			write(1, " ", 1);
 		++addr;
 		++i_address;
 	}
-}
-*/
-
-void	print_hexa(unsigned long value, int size_output)
-{
-	char		string_output[16];
-	const char	*hex_digit = HEXA_BASE;
-	size_t		i;
-
-	i = size_output;
-	while (i > 0)
-	{
-		string_ouput[i - 1] = hex_digit[value % 16];
-		value = value / 16;
-		--i;
-	}
-	write(1, &string_output[16 - size_output], size_output);
 }
 
 void	print_content(char	*str, size_t	size)
@@ -105,8 +89,8 @@ void	put_spaces(int	size)
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned long	ad;
-	const char		base[] = "0123456789abcdef";
-	unsigned int	nb_bytes;
+	const char	base[] = "0123456789abcdef";
+	int				nb_bytes;
 
 	nb_bytes = size;
 	ad = (unsigned long)addr;
@@ -126,7 +110,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		}
 		write(1, "\n", 1);
 		ad += 16;
-		nb_bytes -= nb_bytes % 16;
+		nb_bytes -= 16;
 	}
 	return(addr);
 }
