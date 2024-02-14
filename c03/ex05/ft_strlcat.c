@@ -6,9 +6,11 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 08:51:18 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 08:54:21 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:21:29 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <aio.h>
 
 size_t	ft_strlen(char *s)
 {
@@ -40,14 +42,14 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	const size_t	size_src = ft_strlen(src);
-	size_t			size_dst;
+	size_t			size_dest;
 
-	if (dst == NULL)
-		size_dst = 0;
+	if (dest == NULL)
+		size_dest = 0;
 	else
-		size_dst = ft_strlen(dst);
-	if (size <= size_dst)
+		size_dest = ft_strlen(dest);
+	if (size <= size_dest)
 		return (size + size_src);
-	ft_strlcpy(dst + size_dst, src, size - size_dst);
-	return (size_dst + size_src);
+	ft_strlcpy(dest + size_dest, src, size - size_dest);
+	return (size_dest + size_src);
 }

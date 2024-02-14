@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:54:30 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 11:12:34 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:32:47 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 void	print_hexa(unsigned long value, int size_output)
 {
 	char		string_output[16];
-	const char	*hex_digit = HEXA_BASE;
 	size_t		size;
 	int			i;
 
@@ -26,7 +25,7 @@ void	print_hexa(unsigned long value, int size_output)
 	i = 0;
 	while (i < size_output)
 	{
-		string_output[size] = hex_digit[value % 16];
+		string_output[size] = HEXA_BASE[value % 16];
 		value = value / 16;
 		++i;
 		--size;

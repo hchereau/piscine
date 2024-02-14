@@ -6,14 +6,16 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 08:50:31 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 08:51:02 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:22:59 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <aio.h>
+
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
-	int	y;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (str[i] != '\0')
