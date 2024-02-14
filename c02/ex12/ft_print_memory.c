@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:54:30 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 14:38:52 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:38:15 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,32 +78,32 @@ void	print_char_hexa(char *line, int nb)
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned long	ad;
-    int				nb_bytes;
-    int				count_bytes;
+	int				nb_bytes;
+	int				count_bytes;
 
 	nb_bytes = size;
 	ad = (unsigned long)addr;
 	while (nb_bytes > 0)
-    {
-        count_bytes = nb_bytes;
-        if (count_bytes > 16)
-            count_bytes = 16;
-        print_hexa(ad, 16);
-        write(1, ": ", 2);
-        print_char_hexa(((char *)ad), count_bytes);
-        put_spaces(16 - count_bytes);
-        print_content(((char *)ad), count_bytes);
-        write(1, "\n", 1);
-        ad += 16;
-        nb_bytes -= 16;
-    }
-    return(addr);
+	{
+		count_bytes = nb_bytes;
+		if (count_bytes > 16)
+			count_bytes = 16;
+		print_hexa(ad, 16);
+		write(1, ": ", 2);
+		print_char_hexa(((char *)ad), count_bytes);
+		put_spaces(16 - count_bytes);
+		print_content(((char *)ad), count_bytes);
+		write(1, "\n", 1);
+		ad += 16;
+		nb_bytes -= 16;
+	}
+	return (addr);
 }
 /*
 int	main()
 {
-	char *str = "Bonjour les aminches...c. est fou\ntout\tce qu on9 peut faire avec\e ..print_memory\n.\nlol.lol\n \n";
+	char *str = "Bonjour les aminches...c. est fou\ntout\tce qu on9 peut faire 
+				avec\e ..print_memory\n.\nlol.lol\n \n";
 	ft_print_memory(str, 91);
 }
 */
-

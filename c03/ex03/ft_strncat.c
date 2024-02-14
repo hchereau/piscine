@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 08:50:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 14:39:51 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:40:20 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		++i_src;
 	}
 	dest[i_dest] = '\0';
-	return (i_dest;
+	return (i_dest);
 }
-
