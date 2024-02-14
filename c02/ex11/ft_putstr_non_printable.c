@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:02:37 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 10:22:24 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:25:44 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	print_hexa(int nb)
 {
-	const char	base[] = "0123456789abcdef";
-	char		hexa[2];
+	const char			base[] = "0123456789abcdef";
+	unsigned char		hexa[2];
 
 	hexa[0] = base[nb / 16];
 	hexa[1] = base[nb % 16];
