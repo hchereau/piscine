@@ -6,19 +6,20 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:02:37 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 13:25:44 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:15:29 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	print_hexa(int nb)
+#define HEXA_BASE "0123456789abcdef"
+
+static void	print_hexa(const unsigned int nb)
 {
-	const char			base[] = "0123456789abcdef";
 	unsigned char		hexa[2];
 
-	hexa[0] = base[nb / 16];
-	hexa[1] = base[nb % 16];
+	hexa[0] = HEXA_BASE[nb / 16];
+	hexa[1] = HEXA_BASE[nb % 16];
 	write(1, hexa, 2);
 }
 
@@ -39,4 +40,9 @@ void	ft_putstr_non_printable(char *str)
 		++i;
 	}
 }
-
+/*
+int	main()
+{
+	ft_putstr_non_printable("salut C'est super \n \t \r ouai \\ ");
+}
+*/

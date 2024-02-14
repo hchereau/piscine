@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 17:57:00 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/12 18:02:00 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:25:26 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	size_t	i;
 
-	if(size > 0)
+	if (size > 0)
 	{
 		i = 0;
 		while (i < size - 1 && src[i] != '\0')
