@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:54:30 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 15:38:15 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:49:49 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_hexa(unsigned long value, int size_output)
 	i = 0;
 	while (i < SIZE)
 	{
-		string_output[SIZE - i - 1] = HEXA_BASE[value % 16];
+		string_output[SIZE - i - 1] = HEXA_BASE[value % SIZE];
 		value /= SIZE;
 		++i;
 	}
@@ -62,7 +62,7 @@ void	put_spaces(int size)
 
 void	print_char_hexa(char *line, int nb)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < nb)
@@ -103,7 +103,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 int	main()
 {
 	char *str = "Bonjour les aminches...c. est fou\ntout\tce qu on9 peut faire 
-				avec\e ..print_memory\n.\nlol.lol\n \n";
-	ft_print_memory(str, 91);
+		avec\e ..print_memory\n.\nlol.lol\n \n";
+	ft_print_memory(str, 12000);
 }
 */

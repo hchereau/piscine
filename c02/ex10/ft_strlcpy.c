@@ -6,9 +6,11 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 17:57:00 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 14:25:26 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:10:05 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 size_t	ft_strlen(char *s)
 {
@@ -27,12 +29,23 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	if (size > 0)
 	{
 		i = 0;
-		while (i < size - 1 && src[i] != '\0')
+		while (i <= size - 1 && src[i] != '\0')
 		{
-			dst[i] = src[i];
+			dest[i] = src[i];
 			++i;
 		}
-		dst[i] = '\0';
+		dest[i] = '\0';
 	}
 	return (ft_strlen(src));
 }
+/*
+#include <stdio.h>
+
+int	main()
+{
+	char src[] = "salut";
+	char dest[] = "bonjour";
+	ft_strlcpy(dest, src, 5);
+	printf("%s", dest);
+}
+*/

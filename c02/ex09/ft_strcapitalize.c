@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:56:30 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/12 17:55:13 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:14:48 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ char	*ft_strcapitalize(char *str)
 	{
 		if (is_word(str[i]) && in_word == 0)
 		{
-			str[i] = str[i] - CONVERT_MAJ;
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] = str[i] - CONVERT_MAJ;
 			in_word = 1;
 		}
 		else if (!is_word(str[i]))
@@ -74,8 +75,7 @@ char	*ft_strcapitalize(char *str)
 
 int	main()
 {
-	char str[] = "  salut  , comment tu vas ? 
-	42mots quarante-deux; cinquante+et+un";
+	char str[] = "524hjkl //p/PP gd\t%$# ^y\\t^ 58\n";
 	printf("%s", ft_strcapitalize(str));
 }
 */
