@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:54:30 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/15 11:49:49 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:49:14 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,9 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
-/*
+
 int	main()
 {
-	char *str = "Bonjour les aminches...c. est fou\ntout\tce qu on9 peut faire 
-		avec\e ..print_memory\n.\nlol.lol\n \n";
+	char *str = "Bonjour les aminches...c. est fou\ntout\tce qu on9 peut faire avec\e ..print_memory\n.\nlol.lol\n \n";
 	ft_print_memory(str, 12000);
 }
-*/
