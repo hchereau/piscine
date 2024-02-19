@@ -6,13 +6,13 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 08:41:45 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/10 08:42:41 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:33:11 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

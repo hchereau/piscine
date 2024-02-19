@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 18:53:43 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 19:53:20 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/19 09:55:35 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/19 20:00:39 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stddef.h>
 #include <stdbool.h>
+
+#define SPACE 32
+#define FIRST_WHITESPACE 9
+#define LAST_WHITESPACE 13
 
 static void	fill_tab(bool *ascii_verif)
 {
@@ -49,33 +52,64 @@ static int	get_len_base(char *base)
 	return (i);
 }
 
-void	ft_putnbr_recursive(long nbr, char *base, int len_base)
+static int	get_number(char c, char *base)
 {
-	if (len_base > 1)
+	int	i;
+
+	i = 0;
+	while (base[i] != '\0')
 	{
-		if (nbr < 0)
-		{
-			nbr *= -1;
-			write(1, "-", 1);
-		}
-		if (nbr >= len_base)
-		{
-			ft_putnbr_recursive(nbr / len_base, base, len_base);
-			write(STDOUT_FILENO, &base[nbr % len_base], 1);
-		}
-		else
-			write(STDOUT_FILENO, &base[nbr % len_base], 1);
-	}		
+		if (base[i] == c)
+			return (i);
+		++i;
+	}
+	return (-1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+long	convert_base(char *str, char *base, int len_base, int i)
 {
-	ft_putnbr_recursive(nbr, base, get_len_base(base));
+	long	value;
+
+	value = 0;
+	while (str[i] != '\0' && get_number(str[i], base) != -1)
+	{
+			value = value * len_base + get_number(str[i], base);
+			++i;
+	}
+	return (value);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int		sign;
+	int		i;
+	int		len_base;
+	long	atoi;
+
+	atoi = 0;
+	len_base = get_len_base(base);
+	if (len_base > 1)
+	{
+		sign = 1;
+		i = 0;
+		while (str[i] == SPACE
+			|| (FIRST_WHITESPACE <= str[i] && str[i] <= LAST_WHITESPACE))
+			++i;
+		while (str[i] == '+' || str[i] == '-')
+		{
+			if (str[i] == '-')
+				sign *= -1;
+			++i;
+		}
+		atoi = convert_base(str, base, len_base, i);
+	}
+	return (atoi * sign);
 }
 /*
 #include <stdio.h>
+
 int	main()
 {
-	ft_putnbr_base(15, "0123456789ABCDEF");
+	printf("%d\n", ft_atoi_base("-010101011", "01"));
 }
 */
