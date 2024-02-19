@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 08:50:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 09:05:21 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/19 21:08:51 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/19 21:11:52 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <aio.h>
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_fibonacci(int index)
 {
-	size_t	i_dest;
-	size_t	i_src;
-
-	i_dest = 0;
-	i_src = 0;
-	while (dest[i_dest])
-		++i_dest;
-	while (i_src < nb && src[i_src])
-	{
-		dest[i_dest] = src[i_src];
-		++i_dest;
-		++i_src;
-	}
-	dest[i_dest] = '\0';
-	return (dest);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }

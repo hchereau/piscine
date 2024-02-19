@@ -6,11 +6,12 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 08:51:18 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/14 14:21:29 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/19 09:08:05 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <aio.h>
+#include <stdio.h>
 
 size_t	ft_strlen(char *s)
 {
@@ -31,10 +32,10 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		i = 0;
 		while (i < size - 1 && src[i] != '\0')
 		{
-			dst[i] = src[i];
+			dest[i] = src[i];
 			++i;
 		}
-		dst[i] = '\0';
+		dest[i] = '\0';
 	}
 	return (ft_strlen(src));
 }

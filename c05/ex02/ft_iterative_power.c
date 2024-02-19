@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 08:50:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 09:05:21 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/19 15:51:19 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/19 16:07:53 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <aio.h>
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_iterative_power(int nb, int power)
 {
-	size_t	i_dest;
-	size_t	i_src;
+	int puis;
 
-	i_dest = 0;
-	i_src = 0;
-	while (dest[i_dest])
-		++i_dest;
-	while (i_src < nb && src[i_src])
+	puis = nb;
+	while (power > 0)
 	{
-		dest[i_dest] = src[i_src];
-		++i_dest;
-		++i_src;
+		nb *= puis;
 	}
-	dest[i_dest] = '\0';
-	return (dest);
+	return (nb);
 }

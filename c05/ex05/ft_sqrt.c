@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 08:50:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 09:05:21 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/19 21:12:20 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/19 21:49:01 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <aio.h>
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_sqrt(int nb)
 {
-	size_t	i_dest;
-	size_t	i_src;
-
-	i_dest = 0;
-	i_src = 0;
-	while (dest[i_dest])
-		++i_dest;
-	while (i_src < nb && src[i_src])
+	int	sqrt;
+	if (nb <= 0)
+		return (0);
+	sqrt = 1;
+	while (sqrt <= 0xFFFF)
 	{
-		dest[i_dest] = src[i_src];
-		++i_dest;
-		++i_src;
+		if (sqrt * sqrt == nb)
+			return (sqrt);
+		++sqrt;
 	}
-	dest[i_dest] = '\0';
-	return (dest);
+	return (0);
 }
+/*
+#include <stdio.h>
+
+int main()
+{
+	printf("%d", ft_sqrt(214739716));
+}
+*/

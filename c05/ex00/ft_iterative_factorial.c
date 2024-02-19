@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 08:50:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 09:05:21 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/19 15:28:51 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/19 15:37:22 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <aio.h>
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_iterative_factorial(int nb)
 {
-	size_t	i_dest;
-	size_t	i_src;
+	int	i;
+	int	res;
 
-	i_dest = 0;
-	i_src = 0;
-	while (dest[i_dest])
-		++i_dest;
-	while (i_src < nb && src[i_src])
+	i = 1;
+	res = 1;
+	while (i <= nb)
 	{
-		dest[i_dest] = src[i_src];
-		++i_dest;
-		++i_src;
+		res *= i;
+		++i;
 	}
-	dest[i_dest] = '\0';
-	return (dest);
+	return (res);
 }
