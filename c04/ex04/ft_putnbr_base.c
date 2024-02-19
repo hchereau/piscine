@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:53:43 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 19:53:20 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/19 22:10:50 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	ft_putnbr_base(int nbr, char *base)
 #include <stdio.h>
 int	main()
 {
-	ft_putnbr_base(15, "0123456789ABCDEF");
+	ft_putnbr_base(2147483647, "0123456789ABCDEF");
 }
 */

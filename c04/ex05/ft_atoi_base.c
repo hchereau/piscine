@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 09:55:35 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 20:00:39 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/19 22:10:15 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int	ft_atoi_base(char *str, char *base)
 
 	atoi = 0;
 	len_base = get_len_base(base);
+	sign = 1;
 	if (len_base > 1)
 	{
-		sign = 1;
 		i = 0;
 		while (str[i] == SPACE
 			|| (FIRST_WHITESPACE <= str[i] && str[i] <= LAST_WHITESPACE))
@@ -110,6 +110,6 @@ int	ft_atoi_base(char *str, char *base)
 
 int	main()
 {
-	printf("%d\n", ft_atoi_base("-010101011", "01"));
+	printf("%d\n", ft_atoi_base("-qdqd", "zudtqcsehn"));
 }
 */
