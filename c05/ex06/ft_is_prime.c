@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 08:43:23 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/20 17:26:24 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/20 08:34:58 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/20 08:42:12 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	int	prime;
+	int	prime = 0;
 
-	prime = 0;
 	if (nb <= 1)
 		return (0);
 	prime = 2;
@@ -26,20 +25,3 @@ int	ft_is_prime(int nb)
 	}
 	return (1);
 }
-
-int	ft_find_next_prime(int nb)
-{
-	if (nb < 2)
-		nb = 2;
-	while (!ft_is_prime(nb))
-		++nb;
-	return (nb);
-}
-/*
-#include <stdio.h>
-
-int main()
-{
-	printf("%d", ft_find_next_prime(2147483424));	
-}
-*/

@@ -1,45 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 08:43:23 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/20 17:26:24 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/20 17:39:39 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/20 17:44:38 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int	prime;
+#include <unistd.h>
 
-	prime = 0;
-	if (nb <= 1)
-		return (0);
-	prime = 2;
-	while (prime <= nb / prime)
-	{
-		if (nb % prime == 0)
-			return (0);
-		++prime;
-	}
-	return (1);
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		++i;
+	return (i);
 }
 
-int	ft_find_next_prime(int nb)
+int	main(int ac, char **av)
 {
-	if (nb < 2)
-		nb = 2;
-	while (!ft_is_prime(nb))
-		++nb;
-	return (nb);
+	(void)ac;
+	write(STDOUT_FILENO, av[0], ft_strlen(av[0]));
+	write(STDOUT_FILENO, "\n", 1);
 }
-/*
-#include <stdio.h>
-
-int main()
-{
-	printf("%d", ft_find_next_prime(2147483424));	
-}
-*/
