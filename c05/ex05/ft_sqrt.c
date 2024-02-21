@@ -6,13 +6,14 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:12:20 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 21:49:01 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/21 08:20:03 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
 	int	sqrt;
+
 	if (nb <= 0)
 		return (0);
 	sqrt = 1;
@@ -29,6 +30,8 @@ int	ft_sqrt(int nb)
 
 int main()
 {
-	printf("%d", ft_sqrt(214739716));
+    printf("%d\n", ft_sqrt(2147483647));
+	printf("%d\n", ft_sqrt(2147395600));
+
 }
 */

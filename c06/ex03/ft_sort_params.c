@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 16:08:36 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/21 08:20:49 by hucherea         ###   ########.fr       */
+/*   Created: 2024/02/20 19:02:38 by hucherea          #+#    #+#             */
+/*   Updated: 2024/02/20 19:13:36 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+#include <stdio.h>
+
+int	main(int ac, char **av)
 {
-	if (power < 0)
-		return (0);
-	else if (power < 1)
-		return (1);
-	else
-		return (nb * ft_recursive_power(nb, power - 1));
+	int i_start;
+	int	i_tri;
+
+	i_start = 0;
+	while (i_start < ac)
+	{
+		i_tri = 0;
+		while (i_tri < ac)
+		{
+			if (strcmpt(av[i_start], av[i_tri]))
+			{
+				ft_swap
+			}
+		}
+	}
 }

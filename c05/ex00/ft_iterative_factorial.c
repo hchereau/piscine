@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:28:51 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/19 15:37:22 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:45:49 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_iterative_factorial(int nb)
 
 	i = 1;
 	res = 1;
+	if (nb < 0)
+		return (0);
 	while (i <= nb)
 	{
 		res *= i;

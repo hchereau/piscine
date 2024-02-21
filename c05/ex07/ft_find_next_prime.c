@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:43:23 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/20 17:26:24 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:02:17 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	ft_find_next_prime(int nb)
 
 int main()
 {
-	printf("%d", ft_find_next_prime(2147483424));	
+	printf("%d", ft_find_next_prime(2147483646));	
 }
 */

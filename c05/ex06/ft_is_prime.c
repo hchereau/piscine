@@ -6,14 +6,15 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:34:58 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/20 08:42:12 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/21 08:21:40 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	int	prime = 0;
+	int	prime;
 
+	prime = 0;
 	if (nb <= 1)
 		return (0);
 	prime = 2;
