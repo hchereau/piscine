@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 09:19:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/21 09:37:26 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:15:04 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 
 char	*ft_strdup(char *src)
 {
-	const int	size = ft_strlen(src);
+	const int	size = ft_strlen(src) + 1;
 	char		*res;
 
 	res = (char *)malloc(size * sizeof(char));
 	if (res != NULL)
-		ft_strlcpy(res, src, size + 1);
+		ft_strlcpy(res, src, size);
 	return (res);
 }
 /*
