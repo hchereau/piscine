@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 12:45:46 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/22 14:19:38 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:38:36 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,15 @@ static int size_number(int nb, int len_base)
 	return (size);
 }
 
+static int fill_string(int nb, char *base, int len_base, int len_number)
+{
+	while 
+}
+
 char	*ft_itoa_base(int nb, char *base)
 {
 	const int	len_base = get_len_base(base);
 	const int	len_number = size_number(nb, len_base);
-	int			nb_cpy;
 	char		*itoa;
 
 	if (len_base > 1)
@@ -46,8 +50,11 @@ char	*ft_itoa_base(int nb, char *base)
 			nb *= -1;
 		}
 		else
-			itoa = (char *)malloc(len_number * sizeof(char);
-
+			itoa = (char *)malloc(len_number * sizeof(char));
+		while ()
+		{
+			
+		}
 	}
 }
 

@@ -6,30 +6,62 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:16:29 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/16 12:19:02 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:30:19 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlb.h>
+#include <stddef.h>
+
+size_t	ft_strlen(char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] != '\0')
+		++len;
+	return (len);
+}
+
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	size_t	i;
+
+	if (size > 0)
+	{
+		i = 0;
+		while (i <= size - 1 && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			++i;
+		}
+		dest[i] = '\0';
+	}
+	return (ft_strlen(src));
+}
 
 char	**ft_split(char *str, char *charset)
 {
+	int		i;
+	int		len_word;
+	int		nb_word;
+	int		total_len;
 	char	**split;
-	size_t	count_word;
-	size_t	size_word;
-	size_t	i;
-	size_t	word;
+	char	*s_word;
 
-	split = (char **)malloc(count_word(str, charset) * sizeof(char *));
-	word = 0;
+	s_word = str;
+	nb_word = count_word(str, charset);
+	split = (char *)malloc(nb_word * sizeof(char));
 	if (split != NULL)
 	{
-		i = 0;
-		size_word = get_size_word(str + i, charset);
-		split[word] = (char *)malloc(size_word * sizeof(char));
-		while (i < size_word)
+		while (i < nb_word)
 		{
-			split[word][i] = str[i];  
+			get_len_word(s_word, &len_word, );
+			total_len +=total_len;
+			split[i] = (char *)malloc((len_word + 1) * sizeof(char));
+			if (split[i] == NULL)
+				return (0);
+			ft_strlcpy(split[i], str + total_len, len_word + 1);
 			++i;
 		}
 	}
@@ -39,9 +71,11 @@ char	**ft_split(char *str, char *charset)
 process:
 	-> compter le nombre de mots (count_words)
 	-> verifier malloc
-		-> compter le mot actuel
-		-> 
-	-> malloc pas bon
-		-tout free (free_strs)
+		-> compter le nombre de mot
+		-> malloc sur le nombre de mot
+		-> pour chaque mot
+			-> malloc sur strlen de mot
+			-> remplir sur le mot jusqu'au separateur
+			-> 
 */
 
