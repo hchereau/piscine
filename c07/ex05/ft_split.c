@@ -6,24 +6,26 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:16:29 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/22 20:30:19 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/23 10:02:22 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlb.h>
 #include <stddef.h>
 
-size_t	ft_strlen(char *s)
+int	count_word(char *str, char *charset)
 {
-	size_t	len;
+	int	i;
+	int	count_word;
 
-	len = 0;
-	while (s[len] != '\0')
-		++len;
-	return (len);
+	while (str[i] != '\0')
+	{
+		while ()
+		++i;
+	}
 }
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+void	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	size_t	i;
 
@@ -37,7 +39,18 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		}
 		dest[i] = '\0';
 	}
-	return (ft_strlen(src));
+}
+
+void	get_len_word(char *s_word, int len_word, char *charset)
+{
+	while(!is_sep(*s_word, charset))
+	{
+		++s_word;
+		++len_word;
+	}
+	++s_word;
+	while(is_sep(*s_word, charset))
+		++s_word;
 }
 
 char	**ft_split(char *str, char *charset)
@@ -45,7 +58,6 @@ char	**ft_split(char *str, char *charset)
 	int		i;
 	int		len_word;
 	int		nb_word;
-	int		total_len;
 	char	**split;
 	char	*s_word;
 
@@ -56,8 +68,8 @@ char	**ft_split(char *str, char *charset)
 	{
 		while (i < nb_word)
 		{
-			get_len_word(s_word, &len_word, );
-			total_len +=total_len;
+			len_word = 0;
+			get_len_word(s_word, &len_word, charset);
 			split[i] = (char *)malloc((len_word + 1) * sizeof(char));
 			if (split[i] == NULL)
 				return (0);
