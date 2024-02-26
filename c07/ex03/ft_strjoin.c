@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:20:48 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/26 10:48:21 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:29:12 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlen(char *s)
 	size_t	len;
 
 	len = 0;
+	if (s == NULL)
+		return (0);
 	while (s[len] != '\0')
 		++len;
 	return (len);
@@ -78,41 +80,36 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*strjoin;
 	int		i;
 
-	if (strs == NULL)
+	if (size < 0)
 		return (0);
-	if (size == 0)
-	{
-		strjoin = (char *)malloc(1 * sizeof(char));
-		strjoin[0] = 0;
-	}
-	len_join = get_size_join(strs, size) + (ft_strlen(sep) * (size - 1));
+	if (size != 0 && strs != NULL)
+		len_join = get_size_join(strs, size) + (ft_strlen(sep) * (size - 1));
+	else
+		len_join = 1;
 	strjoin = (char *)malloc(len_join * sizeof(char));
 	i = 0;
-	if (strjoin != NULL && len_join != 0)
+	*strjoin = '\0';
+	if (strjoin != NULL && len_join != 0 && strs != NULL)
 	{
 		while (i < size)
 		{
-			printf("%s\n", strs[i]);
 			ft_strlcat(strjoin, strs[i], len_join + 1);
-			ft_strlcat(strjoin, sep, len_join + 1);
+			if (sep != NULL)
+				ft_strlcat(strjoin, sep, len_join + 1);
 			++i;
 		}
+		return (strjoin);
 	}
 	return (strjoin);
 }
 /*
 #include <stdio.h>
-
-int	main(int ac, char **av)
+int  main()
 {
-	(void)ac;
-	(void)av;
-	char *str;
-	char***test = ;
-
-	str = ft_strjoin(2, test, "II");
-	printf("%s", str);
-	free(str);
+    char *strs[] = {"Hello", "42", "World", "piscine", "chat",
+        "", "", ""};
+    char *sep = "-*-";
+    printf("%s\n", ft_strjoin(0, strs, sep));
 }
 */
 /*

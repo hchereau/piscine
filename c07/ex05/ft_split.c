@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:16:29 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/26 10:47:35 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:08:16 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ bool	is_sep(char c, char *charset)
 	int	i;
 
 	i = 0;
+	if (charset == NULL)
+		return (0);
 	while (charset[i] != '\0')
 	{
 		if (charset[i] == c)
@@ -37,6 +39,8 @@ int	count_words(char *str, char *charset)
 	int		count_word;
 	bool	is_sepa;
 
+	if (charset == NULL)
+		return (1);
 	count_word = 0;
 	i = 0;
 	is_sepa = false;
@@ -124,11 +128,10 @@ char	**ft_split(char *str, char *charset)
 int main()
 {
 	char str[] = "//\n///salut/mec//\n///comment/alors///\n///";
-	char	**split = ft_split(str, "\n");
-	int		nb_words  = count_words(str, "\n");
+	char	**split = ft_split(NULL, "\nm");
+	int		nb_words  = count_words(NULL, "\nm");
 	int		i = 0;
 
-//	printf("%d\n", nb_words);
 	while (i < nb_words)
 	{
 		printf("[%s] ", split[i]);

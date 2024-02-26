@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 09:19:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/26 11:42:10 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:12:44 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strdup(char *src)
 
 int	main()
 {
-	char test[] = "salut";
+	char test[] = "";
 	char *dest;
 
 	dest = ft_strdup(test);
