@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 09:55:35 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/22 14:19:41 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:21:34 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static long	convert_base_to_int(char *str, char *base, int len_base, int i)
 	return (value);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *str, char *base, bool *is_valid_base)
 {
 	int		sign;
 	int		i;
@@ -88,8 +88,9 @@ int	ft_atoi_base(char *str, char *base)
 
 	atoi = 0;
 	len_base = get_len_base(base);
+	*is_valid_base = len_base > 1;
 	sign = 1;
-	if (len_base > 1)
+	if (*is_valid_base)
 	{
 		i = 0;
 		while (str[i] == SPACE

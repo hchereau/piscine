@@ -6,12 +6,13 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 12:45:46 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/26 10:37:42 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:21:31 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int	ft_atoi_base(char *str, char *base);
 int	get_len_base(char *base);
@@ -75,8 +76,11 @@ char	*ft_itoa_base(int nb, char *base)
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int		nb;
+	bool	is_valid_base;
 
-	nb = ft_atoi_base(nbr, base_from);
+	nb = ft_atoi_base(nbr, base_from, &is_valid_base);
+	if (!is_valid_base)
+		return (NULL);
 	return (ft_itoa_base(nb, base_to));
 }
 /*
