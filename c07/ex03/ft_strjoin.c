@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:20:48 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/22 12:34:43 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:48:21 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	ft_strlcpy(dest + size_dest, src, size - size_dest);
 	return (size_dest + size_src);
 }
+
 int	get_size_join(char	**strs, int size)
 {
 	int	len_join;
@@ -87,7 +88,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	len_join = get_size_join(strs, size) + (ft_strlen(sep) * (size - 1));
 	strjoin = (char *)malloc(len_join * sizeof(char));
 	i = 0;
-	if(strjoin != NULL && len_join != 0)
+	if (strjoin != NULL && len_join != 0)
 	{
 		while (i < size)
 		{

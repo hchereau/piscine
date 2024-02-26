@@ -6,17 +6,19 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 12:45:46 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/22 15:38:36 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:37:42 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+#include <stdlib.h>
 
 int	ft_atoi_base(char *str, char *base);
 int	get_len_base(char *base);
 
-static int size_number(int nb, int len_base)
+static int	size_number(int nb, int len_base)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	if (nb < 0)
@@ -30,9 +32,22 @@ static int size_number(int nb, int len_base)
 	return (size);
 }
 
-static int fill_string(int nb, char *base, int len_base, int len_number)
+static int	set_string(char **itoa, int len_number, int *nb)
 {
-	while 
+	if (*nb < 0)
+	{
+		*itoa = (char *)malloc(len_number * sizeof(char));
+		if (*itoa == NULL)
+			return (-1);
+		*nb *= -1;
+		*itoa[0] = '-';
+		return (1);
+	}
+	else
+	{
+		*itoa = (char *)malloc(len_number * sizeof(char));
+		return (0);
+	}
 }
 
 char	*ft_itoa_base(int nb, char *base)
@@ -40,22 +55,21 @@ char	*ft_itoa_base(int nb, char *base)
 	const int	len_base = get_len_base(base);
 	const int	len_number = size_number(nb, len_base);
 	char		*itoa;
+	int			i;
 
 	if (len_base > 1)
 	{
-		if (nb < 0)
+		i = set_string(&itoa, len_number, &nb);
+		while (nb > len_base)
 		{
-			itoa = (char *)malloc((len_number + 1)* sizeof(char));
-			str[0] = '-';
-			nb *= -1;
+			itoa[i] = base[nb % len_base];
+			nb = nb / len_base;
+			++i;
 		}
-		else
-			itoa = (char *)malloc(len_number * sizeof(char));
-		while ()
-		{
-			
-		}
+		itoa[i] = base[nb];
+		return (itoa);
 	}
+	return (NULL);
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
@@ -63,9 +77,19 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		nb;
 
 	nb = ft_atoi_base(nbr, base_from);
-	return(ft_itoa_base(nb, base_to));
+	return (ft_itoa_base(nb, base_to));
 }
+/*
+#include <stdio.h>
 
+int	main()
+{
+	char *str;
+	str = ft_convert_base("-65", "0123456789", "01");
+	printf("%s", str);
+	free(str);
+}
+*/
 /*
 	
 	itoa_base

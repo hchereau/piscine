@@ -6,79 +6,136 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:16:29 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/23 10:02:22 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:47:35 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlb.h>
+#include <stdlib.h>
 #include <stddef.h>
+#include <stdbool.h>
+#include <stdio.h>
 
-int	count_word(char *str, char *charset)
+bool	is_sep(char c, char *charset)
 {
 	int	i;
-	int	count_word;
 
-	while (str[i] != '\0')
+	i = 0;
+	while (charset[i] != '\0')
 	{
-		while ()
+		if (charset[i] == c)
+		{
+			return (1);
+		}
 		++i;
 	}
+	return (0);
 }
 
-void	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	count_words(char *str, char *charset)
 {
-	size_t	i;
+	int		i;
+	int		count_word;
+	bool	is_sepa;
 
-	if (size > 0)
+	count_word = 0;
+	i = 0;
+	is_sepa = false;
+	while (is_sep(str[i], charset))
+		++i;
+	while (str[i] != '\0')
 	{
-		i = 0;
-		while (i <= size - 1 && src[i] != '\0')
+		if (!is_sep(str[i], charset) && is_sepa == false)
 		{
-			dest[i] = src[i];
-			++i;
+			++count_word;
+			is_sepa = true;
 		}
-		dest[i] = '\0';
+		else if (is_sep(str[i], charset))
+			is_sepa = false;
+		++i;
 	}
+	return (count_word);
 }
 
-void	get_len_word(char *s_word, int len_word, char *charset)
+int	get_len_word(char *str, int get_charset, char *charset)
 {
-	while(!is_sep(*s_word, charset))
+	int	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	while (is_sep(str[i], charset))
+		++i;
+	while (!is_sep(str[i], charset) && str[i] != '\0')
 	{
-		++s_word;
-		++len_word;
+		++i;
+		++len;
 	}
-	++s_word;
-	while(is_sep(*s_word, charset))
-		++s_word;
+	if (get_charset)
+		return (i);
+	else
+		return (len);
+}
+
+void	ft_strlcpy(char *dest, char *src, int len_word, char *charset)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (is_sep(src[j], charset) && src[j] != '\0')
+		++j;
+	while (i < len_word && src[j + i] != '\0')
+	{
+		dest[i] = src[j + i];
+		++i;
+	}
+	dest[len_word] = '\0';
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	int		i;
-	int		len_word;
-	int		nb_word;
+	int		nb_words;
 	char	**split;
-	char	*s_word;
+	int		i;
+	int		total_len;
+	int		len_word;
 
-	s_word = str;
-	nb_word = count_word(str, charset);
-	split = (char *)malloc(nb_word * sizeof(char));
-	if (split != NULL)
+	i = 0;
+	nb_words = count_words(str, charset);
+	total_len = 0;
+	split = (char **)malloc((nb_words + 1) * sizeof(char *));
+	if (split == NULL)
+		return (split);
+	while (i < nb_words)
 	{
-		while (i < nb_word)
-		{
-			len_word = 0;
-			get_len_word(s_word, &len_word, charset);
-			split[i] = (char *)malloc((len_word + 1) * sizeof(char));
-			if (split[i] == NULL)
-				return (0);
-			ft_strlcpy(split[i], str + total_len, len_word + 1);
-			++i;
-		}
+		len_word = get_len_word(str + total_len, 0, charset);
+		split[i] = (char *)malloc((len_word + 1) * sizeof(char));
+		ft_strlcpy(split[i], str + total_len, len_word, charset);
+		total_len += get_len_word(str + total_len, 1, charset);
+		++i;
+	}
+	split[nb_words] = NULL;
+	return (split);
+}
+/*
+#include <stdio.h>
+
+int main()
+{
+	char str[] = "//\n///salut/mec//\n///comment/alors///\n///";
+	char	**split = ft_split(str, "\n");
+	int		nb_words  = count_words(str, "\n");
+	int		i = 0;
+
+//	printf("%d\n", nb_words);
+	while (i < nb_words)
+	{
+		printf("[%s] ", split[i]);
+		++i;
 	}
 }
-
+*/
 /*
 process:
 	-> compter le nombre de mots (count_words)
@@ -90,4 +147,3 @@ process:
 			-> remplir sur le mot jusqu'au separateur
 			-> 
 */
-
