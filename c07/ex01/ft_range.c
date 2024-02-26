@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 09:51:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/26 10:48:53 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:46:43 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	*ft_range(int min, int max)
 {
-	int	i;
-	int	*tab_mid;
+	int			i;
+	int			*tab_mid;
+	const int	size = max - min;
 
-	*tab_mid = NULL;
 	if (min >= max)
-		return (tab_mid);
-	tab_mid = (int *)malloc((max - min) * sizeof(int));
+		return (NULL);
+	tab_mid = (int *)malloc(size * sizeof(int));
 	if (tab_mid == NULL)
 		return (NULL);
-	i = min;
-	while (i < max)
+	i = 0;
+	while (i < size)
 	{
-		tab_mid[i - min] = i;
+		tab_mid[i] = min + i;
 		++i;
 	}
 	return (tab_mid);

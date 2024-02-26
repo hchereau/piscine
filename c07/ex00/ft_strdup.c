@@ -6,7 +6,7 @@
 /*   By: hucherea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 09:19:09 by hucherea          #+#    #+#             */
-/*   Updated: 2024/02/26 11:40:31 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:42:10 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 
 char	*ft_strdup(char *src)
 {
-	const int	size = ft_strlen(src);
-	char		*res;
+	const size_t	size = ft_strlen(src);
+	char			*res;
 
 	res = (char *)malloc((size + 1) * sizeof(char));
 	if (res != NULL)
